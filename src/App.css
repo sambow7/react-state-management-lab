@@ -1,16 +1,167 @@
-#root {
-  margin: 16px;
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Orbitron:wght@500&display=swap');
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --background-color: #1b1b1b;
+  --accent-green: #00ff00;
+  --blood-red: #8b0000;
+  --text-color: #f0f0f0;
+  --button-hover: #006400;
 }
 
-ul {
+body {
+  margin: 30px;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Orbitron', sans-serif;
+  background-image: url('https://play-lh.googleusercontent.com/apsVKQMOuB3X-O_xAs4SkBZX3bQfjCmcqk58-e_VYHraXnI7LueTksLGdscqpoNYZFA=w526-h296-rw');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  font-family: 'Rubik Doodle Shadow', cursive;
+  font-size: 3em;
+  color: var(--accent-green);
+  text-shadow: 3px 3px var(--blood-red);
+  margin: 20px;
+}
+
+/* Zombie team cards */
+.team-card {
+  background: rgba(34, 34, 34, 0.85);
+  border: 3px solid var(--blood-red);
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--accent-green);
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: grabbing;
+}
+
+.team-card:hover {
+  transform: translateY(-10px) rotate(2deg);
+}
+
+.button {
+  background: var(--accent-green);
+  color: var(--background-color);
+  border: none;
+  padding: 15px 30px;
+  margin: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s;
+  background-color: #00ff00;
+}
+
+.button:hover {
+  background: var(--button-hover);
+  transform: scale(1.1);
+}
+
+/* Alerts for danger */
+.alert {
+  color: var(--blood-red);
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+body {
+  cursor: grab;
+}
+
+/* App.jsx Updated Classes */
+.app-header {
+  text-align: center;
+  color: var(--accent-green);
+  margin: 20px 0;
+}
+
+.money-status {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 1.5em;
+}
+
+.team-list,
+.fighter-list {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-li {
-  list-style: none;
-  margin: 8px;
-  padding: 8px;
-  border: whitesmoke 3px solid;
-  border-radius: 8px;
+.team-list li,
+.fighter-list li {
+  margin: 15px;
+  background: rgba(20, 20, 20, 0.7);
+  border: 2px solid var(--blood-red);
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.team-list img,
+.fighter-list img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.team-list h2,
+.fighter-list h2 {
+  margin: 10px 0;
+  color: var(--accent-green);
+}
+
+.team-list p,
+.fighter-list p {
+  margin: 5px 0;
+}
+
+.team-list button,
+.fighter-list button {
+  margin-top: 10px;
+  font-size: 1em;
 }

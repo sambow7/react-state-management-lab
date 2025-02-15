@@ -116,42 +116,57 @@ const App = () => {
     
 
 
-  return (
-    <>
-    <h1>My Zombie Fighter Team</h1>
-      <h3>Current Money: ${money}</h3>
-      <h3>Total Strength: {totalStrength}</h3>
-      <h3>Total Agility: {totalAgility}</h3>
-      {team.length === 0 ? (
-      <h2>Pick some zombie fighters for your team!</h2>) : (
-      <ul>
-        {team.map((fighter, index) => (
-          <li key={index}>
-            <img src={fighter.img} alt={fighter.name} />
-            <h2>{fighter.name}</h2>
-            <p>Price: ${fighter.price}</p>
-            <p>Strength: {fighter.strength}</p>
-            <p>Agility: {fighter.agility}</p>
-            <button onClick={() => handleRemoveFighter(fighter)}>Remove</button>  
-          </li>
-        ))}
-      </ul>
-      )}  
-    <h1>Zombie Fighters</h1>
-      <ul>
-        {zombieFighters.map((fighter) => (
-          <li key={fighter.id}>
-            <img src={fighter.img} alt={fighter.name} />
-            <h2>{fighter.name}</h2>
-            <p>Price: ${fighter.price}</p>
-            <p>Strength: {fighter.strength}</p>
-            <p>Agility: {fighter.agility}</p>
-            <button onClick={() => handleAddFighter(fighter)}>Add</button>
-          </li>  
-        ))}
-      </ul>
-    </>
-  );
+    return (
+      <div className="app-container">
+        <header className="app-header">
+          <h1>My Zombie Fighter Team</h1>
+        </header>
+    
+        <div className="stats-container">
+          <h3>Current Money: ${money}</h3>
+          <h3>Total Strength: {totalStrength}</h3>
+          <h3>Total Agility: {totalAgility}</h3>
+        </div>
+    
+        <div className="teams-container">
+          <div className="team-section">
+            <h2>Your Team</h2>
+            {team.length === 0 ? (
+              <h3>Pick some zombie fighters for your team!</h3>
+            ) : (
+              <ul className="team-list">
+                {team.map((fighter, index) => (
+                  <li key={index} className="team-card">
+                    <img src={fighter.img} alt={fighter.name} />
+                    <h2>{fighter.name}</h2>
+                    <p>Price: ${fighter.price}</p>
+                    <p>Strength: {fighter.strength}</p>
+                    <p>Agility: {fighter.agility}</p>
+                    <button className="button" onClick={() => handleRemoveFighter(fighter)}>Remove</button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+    
+          <div className="fighters-section">
+            <h2>Zombie Fighters</h2>
+            <ul className="fighter-list">
+              {zombieFighters.map((fighter) => (
+                <li key={fighter.id} className="team-card">
+                  <img src={fighter.img} alt={fighter.name} />
+                  <h2>{fighter.name}</h2>
+                  <p>Price: ${fighter.price}</p>
+                  <p>Strength: {fighter.strength}</p>
+                  <p>Agility: {fighter.agility}</p>
+                  <button className="button" onClick={() => handleAddFighter(fighter)}>Add</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
 }
 
 export default App
